@@ -1,0 +1,76 @@
+var path = require('path')
+var vuxLoader = require('vux-loader')
+var utils = require('./utils')
+var config = require('./config')
+var vueLoaderConfig = require('./vue-loader.conf')
+
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}
+
+let webpackConfig = {
+    entry: {
+        app: ["babel-polyfill", "./src/main.js"]
+    },
+    output: {
+        path: config.build.assetsRoot,
+        filename: '[name].js',
+        publicPath: process.env.NODE_ENV === 'production' ?
+            config.build.assetsPublicPath :
+            config.dev.assetsPublicPath
+    },
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            'src': resolve('src'),
+            'js': resolve('src/common/js'),
+            'style': resolve('src/common/style')
+        }
+    },
+    module: {
+        rules: [{
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: vueLoaderConfig
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: [resolve('src')]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/, // 只有通过url的方式引入的文件才会被loader处理，如src，url，import，通过js定义之后引入的变量将不会被处理
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('media/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                }
+            }
+        ]
+    }
+}
+
+/**
+ * 使用vuxLoader集成vux
+ */
+module.exports = vuxLoader.merge(webpackConfig, {
+    plugins: ['vux-ui', 'duplicate-style'],
+    options: { showVuxVersionInfo: false }
+})

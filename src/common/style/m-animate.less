@@ -1,0 +1,305 @@
+/*****************************自定义动画*********************************/
+
+
+/**淡入**/
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+//-------------------------------------------------------------------------------------------------
+
+/**底部淡入**/
+
+@keyframes bottom-fade-in {
+    0% {
+        transform: translate3d(0, 100%, 0);
+        -webkit-transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes bottom-fade-in {
+    0% {
+        transform: translate3d(0, 100%, 0);
+        -webkit-transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+/**右侧淡入**/
+
+@keyframes right-fade-in {
+    0% {
+        transform: translate3d(100%, 0, 0);
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes right-fade-in {
+    0% {
+        transform: translate3d(100%, 0, 0);
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+/**左侧淡入**/
+
+@keyframes left-fade-in {
+    0% {
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes left-fade-in {
+    0% {
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+/**左侧淡出**/
+
+@keyframes left-fade-out {
+    0% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@-webkit-keyframes left-fade-out {
+    0% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------
+
+/**右侧淡出**/
+
+@keyframes right-fade-out {
+    0% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(100%, 0, 0);
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+}
+
+@-webkit-keyframes right-fade-out {
+    0% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(100%, 0, 0);
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+}
+
+/* 无限旋转 */
+@keyframes rotate-infinite {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate-infinite {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+/**********************************************************************************/
+
+
+/**淡入**/
+
+.animation-fade-in {
+    animation: fade-in 0.3s;
+    -webkit-animation: fade-in 0.3s;
+}
+
+
+/**右侧淡入**/
+
+.animation-right-fade-in {
+    animation: right-fade-in 0.3s;
+    -webkit-animation: right-fade-in 0.3s;
+}
+
+
+/**左侧淡出**/
+
+.animation-left-fade-out {
+    animation: left-fade-out 0.3s;
+    -webkit-animation: left-fade-out 0.3s;
+}
+
+
+/**底部淡出**/
+
+.animation-bottom-fade-in {
+    animation: bottom-fade-in 0.3s;
+    -webkit-animation: bottom-fade-in 0.3s;
+}
+
+/* 过渡效果---- 浅出 */
+.transition-fade-out-leave-active {
+    transition: all .4s;
+    -webkit-transition: all .4s;
+}
+.transition-fade-out-leave-to {
+    opacity: 0;
+}
+
+/* 过渡效果---- 淡入浅出 */
+.transition-fade-in-out-enter-active,
+.transition-fade-in-out-leave-active {
+    transition: all .4s;
+    -webkit-transition: all .4s;
+}
+.transition-fade-in-out-enter,
+.transition-fade-in-out-leave-to {
+    opacity: 0;
+}
+
+/* 过渡效果---- 左侧滑入 */
+.transition-left-in-enter-active,
+.transition-left-in-leave-active {
+    transition: all .2s;
+    -webkit-transition: all .2s;
+}
+.transition-left-in-enter,
+.transition-left-in-leave-to {
+    transform: translateX(-40px);
+}
+
+/* 过渡效果---- 上侧滑入 */
+.transition-top-in-enter-active,
+.transition-top-in-leave-active {
+    transition: all .4s;
+    -webkit-transition: all .4s;
+}
+.transition-top-in-enter,
+.transition-top-in-leave-to {
+    transform: translateY(-100%);
+}
+
+/*过渡效果---- 显示从下往上，消失从下往下 */
+
+.transition-up-down-enter-active,
+.transition-up-down-leave-active {
+    transition: all .3s;
+    -webkit-transition: all .3s;
+}
+
+.transition-up-down-enter,
+.transition-up-down-leave-to {
+    transform: translate3d(0, 100%, 0);
+    -webkit-transform: translate3d(0, 100%, 0);
+}
+
+//------------------------------------------jumpgo----------------------------------------------
+.jumpgo-enter-active {
+    animation: right-fade-in 0.2s;
+    -webkit-animation: right-fade-in 0.2s;
+}
+
+.jumpgo-leave-active {
+    animation: left-fade-out 0.2s;
+    -webkit-animation: left-fade-out 0.2s;
+}
+
+//-------------------------------------------jumpback-------------------------------------------
+.jumpback-enter-active {
+    animation: left-fade-in 0.2s;
+    -webkit-animation: left-fade-in 0.2s;
+}
+
+.jumpback-leave-active {
+    animation: right-fade-out 0.2s;
+    -webkit-animation: right-fade-out 0.2s;
+}
+
+//-------------------------------------------jumphome-------------------------------------------
+.jumphome-enter-active {
+    animation: fade-in 0.2s;
+    -webkit-animation: fade-in 0.2s;
+}
+
+.jumphome-leave-active {
+    animation: right-fade-out 0.2s;
+    -webkit-animation: right-fade-out 0.2s;
+}
+
+.popwin-leave-class {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+}
